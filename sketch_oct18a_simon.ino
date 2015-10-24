@@ -15,7 +15,7 @@ void setup() {
   }
 
   for (i = 0; i < sizeof(PIN_SWITCH)/sizeof(int); i++) {
-    pinMode(PIN_SWITCH[i], INPUT);
+    pinMode(PIN_SWITCH[i], INPUT_PULLUP);
   }
 
   // leave 0 unused.
@@ -64,7 +64,7 @@ void checkState() {
   int found = -1;
   
   for(int i = 0; i < sizeof(PIN_SWITCH)/sizeof(int); i++) {
-    if (digitalRead(PIN_SWITCH[i]) == HIGH) {
+    if (digitalRead(PIN_SWITCH[i]) == LOW) {
       found = i;
     }
   }
